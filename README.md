@@ -6,3 +6,8 @@
 - If the two cards that are open match, they will remain open
 - Every 20 cards opened, you lose a star
 - The goal is to open all the cards in as minimum moves as possible
+
+## **Dependencies**
+
+- FontAwesome
+- Google Fonts

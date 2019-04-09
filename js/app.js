@@ -23,7 +23,6 @@ let restart = document.querySelector(".restart");
  *   - add each card's HTML to the page
  */
 
- function 
 function reset() {
   cardsArr = shuffle(cardsArr);
   for (let i = 0; i < cardsArr.length; i++) {
@@ -78,9 +77,9 @@ function showCard() {
     event.target.classList.add("open");
     event.target.classList.add("show");
     addOpenCardsToArr();
+    matchCards();
     countMoves();
     ratingStars();
-    matchCards();
     won();
   }
 }
@@ -91,25 +90,27 @@ function addOpenCardsToArr() {
 }
 
 // function to check if cards match or not
+
 function matchCards() {
-  const first = openCardsArr[0];
-  const second = openCardsArr[1];
-  for (let openCard of openCardsArr) {
-    if (first.innerHTML === second.innerHTML) {
-      openCard.classList.add("match");
-      openCard.classList.remove("open", "show");
-      winning.push(openCard);
-    } else {
-      setTimeout(function wrongMatch() {
+  if (openCardsArr.length === 2) {
+    const first = openCardsArr[0];
+    const second = openCardsArr[1];
+    for (let openCard of openCardsArr) {
+      if (first.innerHTML === second.innerHTML) {
+        openCard.classList.add("match");
         openCard.classList.remove("open", "show");
-      }, 1000);
+        winning.push(openCard);
+      } else {
+        setTimeout(function wrongMatch() {
+          openCard.classList.remove("open", "show");
+        }, 1000);
+      }
+    }
+    for (let i = 0; i < openCardsArr.length; i++) {
+      removeCards();
     }
   }
-  for (let i = 0; i < openCardsArr.length; i++) {
-    removeCards();
-  }
 }
-
 // function to remove the cards from array once used
 function removeCards() {
   openCardsArr.length = 0;

@@ -118,3 +118,32 @@ h1 {
   width: 50%;
   text-align: center;
 }
+
+/* Style for iPad */
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .score-panel {
+    width: 65%;
+    font-size: 1.5em;
+  }
+}
+
+/* Style for Galaxy S5 */
+@media screen and (min-width: 360px) {
+  h1 {
+    font-size: 5em;
+  }
+
+  .score-panel {
+    font-size: 2em;
+  }
+
+  .deck {
+    margin-top: 1em;
+    width: 70%;
+  }
+}
